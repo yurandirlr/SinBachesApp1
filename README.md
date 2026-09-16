@@ -1,4 +1,10 @@
-# 🚗 Cazador de Baches (Smart City) - Proyecto PHP
+#INFORME DEL PROYECTO – SESIÓN 21
+#CAZADOR DE BACHES – SMART CITY
+#Oráculo → Smart Contracts → Blockchain → IA
+#Estudiante: Yurandir Loayza Rosas
+#Ingeniería de Inteligencia Artificial
+#Fecha: 15 de septiembre de 2026
+
 
 Este proyecto es una simulación web en **PHP puro** de un sistema automatizado para una Ciudad Inteligente. Aplica estrictamente el patrón arquitectónico requerido: **Oráculo → Smart Contracts → Blockchain → IA Generativa**.
 
