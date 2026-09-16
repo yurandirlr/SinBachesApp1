@@ -1,5 +1,5 @@
 #INFORME DEL PROYECTO – SESIÓN 21
-#CAZADOR DE BACHES – SMART CITY
+#SinBachesApp
 #Oráculo → Smart Contracts → Blockchain → IA
 #Estudiante: Yurandir Loayza Rosas
 #Ingeniería de Inteligencia Artificial
