@@ -1,0 +1,727 @@
+/* Estilo Windows Aero / Glassmorphism */
+body { 
+    /* Fondo que simula un paisaje azulado clásico de Windows, con un toque moderno */
+    background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&q=80&w=1920&ixlib=rb-4.0.3') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: #f1f1f1;
+}
+
+/* Efecto Vidrio Esmerilado (Glassmorphism / Aero) */
+.glass-panel {
+    background: rgba(25, 30, 40, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.glass-header {
+    background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    padding: 10px 15px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    color: white;
+}
+
+.card { 
+    background-color: transparent; 
+    border: none;
+}
+
+.card-header {
+    border: none;
+    background-color: transparent;
+}
+
+.table-glass {
+    color: white;
+}
+.table-glass th {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: white !important;
+    border-color: rgba(255,255,255,0.1);
+}
+.table-glass td {
+    background: rgba(0, 0, 0, 0.1) !important;
+    color: white !important;
+    border-color: rgba(255,255,255,0.1);
+}
+
+/* Simulación de Celular */
+.smartphone-container {
+    width: 320px;
+    height: 600px;
+    margin: 0 auto;
+    border: 12px solid #222;
+    border-radius: 36px;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+}
+/* Notch del celular */
+.smartphone-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background-color: #222;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 1000;
+}
+.smartphone-screen {
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+}
+.app-header {
+    background: linear-gradient(to bottom, #0d6efd, #094eb8);
+    color: white;
+    padding: 30px 15px 15px 15px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#map { height: 200px; width: 100%; }
+
+/* Límites de 5-10 líneas para tablas y logs */
+.table-scrollable {
+    max-height: 350px; /* Aprox 5-7 filas dependiendo del padding */
+    overflow-y: auto;
+}
+
+.blockchain-log { 
+    max-height: 250px; 
+    overflow-y: auto; 
+    font-family: 'Consolas', monospace; 
+    font-size: 0.85em; 
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+.log-entry { padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.log-entry:last-child { border-bottom: none; }
+.log-time { color: #aaa; margin-right: 10px; }
+.priority-urgente { color: #ff4757; font-weight: bold; }
+.priority-normal { color: #2ed573; font-weight: bold; }
+.ai-tweet { background: linear-gradient(135deg, #1da1f2, #1a8cd8); color: white; padding: 15px; border-radius: 10px; margin-top: 10px; display: none; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+
+/* Custom Scrollbar for Glass panels */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2); 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3); 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5); 
+}
+
+/* Modal Glass */
+.modal-content.glass-modal {
+    background: rgba(30, 35, 45, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+}
+
+/* IA ÚNICA EN DASHBOARD */
+#aiLivePanel .ai-live-header{background:linear-gradient(135deg,#073b63,#0b79ad)!important;color:#fff!important}
+#aiLivePanel .ai-status{padding:4px 9px;border-radius:999px;font-size:.62rem;font-weight:800}
+#aiLivePanel .ai-status-ready{background:#e8eef4!important;color:#17324d!important}
+#aiLivePanel .ai-status-loading{background:#fff0bd!important;color:#714d00!important}
+#aiLivePanel .ai-status-ok{background:#d8f4e3!important;color:#116238!important}
+#aiLivePanel .ai-live-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:12px}
+#aiLivePanel .ai-caption{color:#b4c1cc;font-size:.62rem;font-weight:800;margin-bottom:4px}
+#aiLivePanel .ai-ticket-name,#aiLivePanel .ai-data-box{background:#fff!important;color:#172033!important;border:1px solid #9db0c2!important;border-radius:7px;padding:8px 10px;font-weight:800;min-height:36px}
+#aiLivePanel .ai-empty-state{background:#fff!important;color:#53697d!important;border:1px dashed #aebdcc;border-radius:9px;padding:14px;text-align:center}
+#aiLivePanel .ai-empty-state i{display:block;color:#1976a8;font-size:22px;margin-bottom:5px}
+#aiLivePanel .ai-empty-state strong,#aiLivePanel .ai-empty-state span{display:block}
+#aiLivePanel .ai-empty-state strong{color:#20394f}
+#aiLivePanel .ai-empty-state span{font-size:.7rem}
+#aiLivePanel .ai-result-card{background:#fff!important;color:#172033!important;border:2px solid #1881b7;border-radius:9px;padding:12px}
+#aiLivePanel .ai-result-title{display:flex;justify-content:space-between;align-items:center;color:#0d4168;font-weight:800;font-size:.78rem;border-bottom:1px solid #d7e1e9;padding-bottom:7px;margin-bottom:8px}
+#aiLivePanel .ai-generated-badge{background:#d9f3e5;color:#116238;border-radius:999px;padding:3px 7px;font-size:.6rem}
+#aiLivePanel .ai-result-text{background:#f3f8fb!important;color:#172033!important;border-left:4px solid #0879ad;padding:10px;border-radius:5px;line-height:1.5;font-size:.88rem}
+#aiLivePanel .ai-result-meta{color:#63778b;font-size:.68rem;margin-top:7px}
+#aiLivePanel .btn-ai-generate{background:#0b65a6!important;color:#fff!important;border-color:#084e82!important;font-weight:800}
+@media(max-width:767px){#aiLivePanel .ai-live-grid{grid-template-columns:1fr}}
+
+/* Smart Contract ticket status */
+.ticket-status-summary{background:#f4f8fb;color:#16354d;border:1px solid #91a8bb;border-left:4px solid #e3a800;border-radius:6px;padding:8px 10px;font-size:.78rem}
+
+/* =========================================================
+   SINBACHES — FUTURISTA / WINDOWS VISTA GLASS
+   ========================================================= */
+:root{
+ --vista-blue:#1b5f91;
+ --vista-blue-dark:#0b2942;
+ --vista-glass:rgba(255,255,255,.78);
+ --vista-border:rgba(255,255,255,.62);
+ --vista-text:#10243a;
+}
+body{
+    background:
+      radial-gradient(circle at 20% 0%,rgba(87,176,230,.18),transparent 35%),
+      radial-gradient(circle at 100% 20%,rgba(116,211,255,.14),transparent 35%),
+      linear-gradient(135deg,#071b2b,#123d5b 52%,#0a253b)!important;
+    color:#eef7ff!important;
+}
+.glass-panel{
+    background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.07))!important;
+    border:1px solid rgba(255,255,255,.24)!important;
+    box-shadow:0 10px 35px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.28)!important;
+    backdrop-filter:blur(14px)!important;
+}
+.glass-header{
+    background:linear-gradient(135deg,rgba(20,100,150,.82),rgba(7,43,69,.88))!important;
+    color:#fff!important;
+    font-weight:800!important;
+}
+h1,h2,h3,h4,.page-title{font-weight:900!important;letter-spacing:.02em;text-shadow:0 2px 4px rgba(0,0,0,.35)}
+#aiLivePanel .ai-live-header{
+    background:linear-gradient(135deg,#176a9d,#0a3656)!important;
+    color:#fff!important;
+}
+#aiLivePanel .ai-live-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
+#aiLivePanel .ai-caption{color:#cce8fa;font-size:.65rem;font-weight:800}
+#aiLivePanel .ai-ticket-name,#aiLivePanel .ai-data-box{
+    background:rgba(255,255,255,.94)!important;color:#10243a!important;
+    border:1px solid #94b2c9!important;border-radius:8px;padding:9px 11px;font-weight:800
+}
+.ai-coordinate-box{
+    margin:8px 0;padding:7px 10px;border-radius:7px;
+    background:rgba(4,27,44,.75);color:#dff3ff;border:1px solid rgba(145,211,241,.3);
+    font-size:.72rem;font-weight:700;
+}
+#aiLivePanel .ai-empty-state,#aiLivePanel .ai-result-card{
+    background:rgba(255,255,255,.95)!important;color:#10243a!important;
+    border:1px solid #aac0d0!important;border-radius:9px
+}
+#aiLivePanel .ai-result-text{
+    background:#f4f8fb!important;color:#10243a!important;
+    border-left:4px solid #1b6f9f!important;
+}
+.ai-scroll-text{
+    max-height:7.5em; /* ~5 lines */
+    overflow-y:auto;
+    white-space:normal;
+    scrollbar-width:thin;
+}
+.report-date-range{
+    margin:8px 0 12px;padding:8px 12px;border-radius:8px;
+    background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);
+    color:#e9f6ff;font-size:.78rem
+}
+.reporters-list{display:flex;flex-direction:column;gap:6px}
+.reporter-row{
+    display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;
+    background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14)
+}
+.reporter-rank{
+    width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
+    background:#d9a441;color:#172b3b;font-weight:900
+}
+.reporter-name{flex:1;color:#fff;font-weight:700}
+.reporter-count{color:#bfe8ff;font-size:.75rem;font-weight:800}
+.badge{font-weight:800}
+.form-control,.form-select{
+    background:rgba(255,255,255,.94)!important;color:#10243a!important;
+    border-color:#8eaabd!important;font-weight:600
+}
+.card,.table{color:#eaf6ff}
+.table td,.table th{vertical-align:middle}
+@media(max-width:767px){#aiLivePanel .ai-live-grid{grid-template-columns:1fr}}
+
+/* FIX FINAL SINBACHES */
+.navbar .nav-link{color:#fff!important;font-weight:800!important;text-shadow:0 1px 2px #00111f}.navbar .nav-link.active{background:rgba(80,180,235,.35)!important;color:#fff!important}
+#reportDateRange{color:#fff!important;background:rgba(8,35,55,.94)!important;border:1px solid rgba(155,220,250,.45)!important;padding:9px 12px;border-radius:8px;margin-bottom:12px}
+.reporter-row{background:rgba(7,32,52,.96)!important;color:#fff!important;border:1px solid rgba(150,215,245,.3)!important}.reporter-name{color:#fff!important}.reporter-count{color:#7edcff!important}.reporter-id{display:block;color:#a9c8da!important;font-size:.68rem}.reporter-empty{color:#fff!important;background:rgba(7,32,52,.96);padding:12px;border-radius:8px}
+.street-rank{color:#ffd75a!important;min-width:28px;display:inline-block}.street-coord{color:#a9ddf5!important}.coord-cell{color:#bce9ff!important;font-size:.68rem;white-space:nowrap}
+.ai-ticket-list{display:flex;flex-direction:column;gap:8px;max-height:390px;overflow-y:auto;padding-right:4px}.ai-ticket-item{background:#f4f8fb!important;color:#10243a!important;border:1px solid #a9c1d2;border-radius:9px;padding:10px}.ai-ticket-active{border-left:5px solid #1684b8!important}.ai-ticket-top{display:flex;align-items:center;gap:8px}.ai-ticket-top strong{color:#10243a!important}.ai-ticket-index{width:24px;height:24px;border-radius:50%;background:#176a9d;color:#fff;display:grid;place-items:center;font-weight:900}.ai-mini-badge{margin-left:auto;background:#e2b23f;color:#172b3b;padding:3px 7px;border-radius:10px;font-size:.66rem;font-weight:900}.ai-ticket-data{font-size:.7rem;color:#416278;margin:5px 0}.ai-ticket-message{font-size:.78rem;line-height:1.35;color:#10243a;max-height:4.1em;overflow-y:auto}
+#nav-dashboard>.row,#nav-reports>.row,#nav-users>.row{align-items:flex-start}.container-fluid.tab-content{max-width:1500px;margin:0 auto}h1{font-size:clamp(2rem,3vw,3.2rem)!important}
+
+/* === AJUSTES SOLICITADOS: tipografía, IA dividida, incidente y foto === */
+:root{--app-font:Inter,Segoe UI,Arial,sans-serif;--app-font-size:10px;}
+html,body,.container,.glass-panel,.smartphone-container,.smartphone-screen,.form-control,.form-select,.btn,.table,.nav-link{font-family:var(--app-font)!important;font-size:var(--app-font-size)!important;}
+.sensor-status{display:inline-flex;align-items:center;gap:5px;color:#00e5ff!important;font-weight:800;font-size:10px!important;background:rgba(0,20,45,.72);border:1px solid rgba(0,229,255,.5);padding:4px 8px;border-radius:999px;letter-spacing:.3px;box-shadow:0 0 10px rgba(0,229,255,.2)}
+.ai-audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.ai-audience-card{border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:10px;background:rgba(4,20,45,.72);min-width:0}
+.ai-audience-card.citizen{border-color:rgba(0,229,255,.45)}
+.ai-audience-card.municipal{border-color:rgba(255,193,7,.45)}
+.ai-audience-title{font-weight:900;font-size:10px!important;letter-spacing:.5px;margin-bottom:8px;color:#fff!important}
+.ai-ticket-list{max-height:250px;overflow-y:auto;padding-right:3px}
+.ai-ticket-item{font-size:10px!important;padding:8px;margin-bottom:7px;border-radius:9px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);color:#fff!important}
+.ai-ticket-item strong,.ai-ticket-message,.ai-ticket-data{color:#fff!important;font-size:10px!important}
+.ai-ticket-message{margin-top:5px;line-height:1.35}
+.internal-message{color:#ffe082!important}
+.ai-ticket-data{opacity:.9}
+.photo-preview{min-height:54px;border:1px dashed rgba(0,229,255,.4);border-radius:8px;padding:5px;display:flex;align-items:center;gap:8px;color:#fff!important;background:rgba(0,0,0,.18);font-size:9px!important}
+.photo-preview img{width:72px;height:48px;object-fit:cover;border-radius:5px;border:1px solid rgba(255,255,255,.3)}
+.incident-types-list{max-height:180px;overflow-y:auto}.incident-type-row{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;margin-bottom:5px;border-radius:7px;background:rgba(255,255,255,.08);color:#fff!important;font-size:10px!important}.incident-type-row span{color:#fff!important}
+@media(max-width:900px){.ai-audience-grid{grid-template-columns:1fr}}
+.demo-photo-label{font-size:9px!important;color:#d8e9ff;margin:5px 0 4px}.demo-photo-gallery{display:flex;gap:5px}.demo-photo{width:31%;padding:3px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#fff!important;font-size:8px!important}.demo-photo img{width:100%;height:38px;object-fit:cover;border-radius:4px;display:block;margin-bottom:2px}.demo-photo:hover{border-color:#00e5ff;transform:translateY(-1px)}
+
+
+/* =========================================================
+   APARIENCIA FINAL — Arial 11 px + contraste + celular amplio
+   ========================================================= */
+:root{
+  --app-font:Arial,sans-serif;
+  --app-font-size:11px;
+}
+html,body{font-family:Arial,sans-serif!important;font-size:11px!important;}
+body,.container-fluid,.tab-content,.glass-panel,.glass-header,.card,.navbar,.nav-link,.btn,.form-control,.form-select,.table,
+label,p,span,small,strong,th,td,h1,h2,h3,h4,h5,h6{font-family:var(--app-font)!important;}
+body{font-size:var(--app-font-size)!important;color:#f4f9ff!important;}
+/* El texto sobre vidrio siempre tiene contraste alto. */
+.glass-panel,.glass-panel p,.glass-panel label,.glass-panel span,.glass-panel small,.glass-panel strong{color:#f4f9ff;}
+.glass-panel .text-muted{color:#d8e6f1!important;}
+.glass-panel .text-info{color:#8ddcff!important;}
+.glass-panel .text-warning{color:#ffe08a!important;}
+.navbar-brand{color:#ffe08a!important;}
+/* Dentro del teléfono: fondo claro y texto oscuro, sin heredar el color del dashboard. */
+.smartphone-container{width:390px;height:760px;max-width:100%;border-width:10px;border-radius:34px;}
+.smartphone-screen{height:100%;display:flex;flex-direction:column;background:#f7fafc!important;color:#172033!important;}
+.smartphone-screen .app-header{flex:0 0 46px;font-size:14px!important;display:flex;align-items:center;justify-content:center;}
+.smartphone-screen #map{flex:0 0 145px!important;height:145px!important;min-height:145px!important;}
+.smartphone-screen>div.p-3{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;padding:10px 13px!important;}
+.smartphone-screen #reportForm,.smartphone-screen #reportForm *{color:#172033;}
+.smartphone-screen .form-label{font-size:11px!important;color:#172033!important;margin-bottom:3px!important;}
+.smartphone-screen .small,.smartphone-screen .text-muted{font-size:10px!important;color:#4c6072!important;}
+.smartphone-screen .form-control,.smartphone-screen .form-select{font-size:11px!important;min-height:34px;padding:5px 8px;background:#fff!important;color:#172033!important;border:1px solid #9aabba!important;}
+.smartphone-screen .btn{font-size:11px!important;min-height:38px;}
+.smartphone-screen .mb-2{margin-bottom:6px!important;}
+.smartphone-screen .photo-preview{color:#31475a!important;background:#eef4f8!important;border-color:#8fa8ba!important;}
+.smartphone-screen .demo-photo-label{color:#4c6072!important;font-size:9px!important;}
+.smartphone-screen .demo-photo{color:#172033!important;background:#fff!important;border-color:#aabac7!important;}
+.smartphone-screen .demo-photo span{color:#172033!important;}
+.smartphone-screen .sensor-status{font-size:10px!important;color:#005b78!important;background:#e6f7fc!important;border-color:#53abc9!important;box-shadow:none;}
+/* En pantallas pequeñas el teléfono ocupa el ancho disponible y el contenido sigue siendo visible. */
+@media(max-width:430px){
+  .smartphone-container{width:100%;height:760px;border-width:8px;}
+}
+/* Ajustes: controles de apariencia siempre legibles. */
+#fontFamilySetting,#fontSizeSetting{background:#fff!important;color:#172033!important;border:1px solid #8eaabd!important;}
+#fontFamilySetting option,#fontSizeSetting option{background:#fff;color:#172033;}
+
+
+/* =========================================================
+   AJUSTE FINAL DE APARIENCIA — LEGIBILIDAD Y ARMONÍA
+   ========================================================= */
+:root{
+  --app-font: Arial, sans-serif;
+  --app-font-size: 14px;
+  --ui-dark:#142536;
+  --ui-muted:#425466;
+  --ui-light:#f5f8fb;
+  --ui-cyan:#63d8ff;
+}
+html,body{font-family:Arial,sans-serif!important;font-size:14px!important;}
+body{color:#f4f8fc!important;}
+body, body *:not(i):not(svg):not(path){font-family:var(--app-font)!important;}
+/* El tamaño base se aplica a todo texto funcional; iconos conservan su tamaño propio. */
+body, p, span, div, label, input, select, option, textarea, button, a, th, td, li, small, strong, em, .form-label, .nav-link, .glass-header, .page-title, .card-title, .card-text{font-size:var(--app-font-size)!important;}
+small,.small{font-size:14px!important;}
+.navbar .nav-link{font-size:14px!important;color:#fff!important;}
+h1{font-size:clamp(2rem,3vw,3.2rem)!important;}
+h2{font-size:1.6rem!important;} h3{font-size:1.4rem!important;} h4,h5,h6{font-size:1.15rem!important;}
+.form-control,.form-select{color:#142536!important;background:#f8fbfd!important;border:1px solid #7893a8!important;}
+.form-control::placeholder{color:#52687a!important;opacity:1!important;}
+.form-label{color:#173149!important;font-weight:700!important;}
+.text-muted{color:#425466!important;}
+/* Evita texto amarillo/blanco sobre superficies claras en IA */
+#aiLivePanel{color:#142536!important;}
+#aiLivePanel .ai-audience-grid{grid-template-columns:1fr 1fr!important;gap:18px!important;}
+#aiLivePanel .ai-audience-card{min-height:330px!important;padding:16px!important;border-radius:14px!important;background:#f7fafc!important;color:#142536!important;box-shadow:inset 0 0 0 1px #c6d5df,0 8px 20px rgba(0,0,0,.14)!important;}
+#aiLivePanel .ai-audience-card.citizen{border:2px solid #59cbe8!important;background:linear-gradient(145deg,#eefaff,#f8fcfe)!important;}
+#aiLivePanel .ai-audience-card.municipal{border:2px solid #e2b23f!important;background:linear-gradient(145deg,#fffaf0,#f8fafc)!important;}
+#aiLivePanel .ai-audience-title{font-size:15px!important;color:#173149!important;background:transparent!important;padding-bottom:10px!important;border-bottom:1px solid #ccd9e2!important;}
+#aiLivePanel .ai-ticket-list{max-height:300px!important;overflow-y:auto!important;padding-right:6px!important;}
+#aiLivePanel .ai-ticket-item{font-size:14px!important;color:#142536!important;background:#fff!important;border:1px solid #b9cad6!important;padding:12px!important;min-height:90px!important;}
+#aiLivePanel .ai-ticket-item strong{color:#10243a!important;font-size:14px!important;}
+#aiLivePanel .ai-ticket-data{color:#425b6c!important;font-size:13px!important;opacity:1!important;}
+#aiLivePanel .ai-ticket-message{color:#142536!important;font-size:14px!important;line-height:1.5!important;}
+#aiLivePanel .internal-message{color:#4a3820!important;background:#fff8e8!important;border-left:4px solid #d6a72d!important;padding:9px!important;border-radius:5px!important;}
+#aiLivePanel .ai-ticket-active{border-left:6px solid #19a8d1!important;}
+#aiLivePanel .ai-ticket-index{font-size:14px!important;}
+#aiLivePanel .ai-mini-badge{font-size:12px!important;}
+#aiLivePanel .ai-empty-state{color:#173149!important;background:#f8fbfd!important;}
+#aiLivePanel .ai-empty-state strong,#aiLivePanel .ai-empty-state span{color:#173149!important;font-size:14px!important;}
+#aiLivePanel .ai-result-card{padding:18px!important;background:#eef3f7!important;border:2px solid #7896aa!important;}
+#aiLivePanel .ai-result-title{font-size:16px!important;color:#102d45!important;}
+#aiLivePanel .ai-caption{font-size:12px!important;color:#d9f3ff!important;}
+#aiLivePanel .ai-ticket-name,#aiLivePanel .ai-data-box{font-size:14px!important;color:#142536!important;background:#fff!important;}
+#aiLivePanel .ai-coordinate-box{font-size:14px!important;color:#e7f7ff!important;}
+#aiLivePanel .ai-generated-badge{font-size:12px!important;}
+/* Psicología del color: grave=rojo, atención=ámbar, leve=celeste. */
+#aiLivePanel .ai-ticket-item.priority-grave{border-left-color:#d62828!important;background:#fff3f3!important;}
+#aiLivePanel .ai-ticket-item.priority-urgente{border-left-color:#d62828!important;background:#fff3f3!important;}
+#aiLivePanel .ai-ticket-item.priority-normal{border-left-color:#20a8d8!important;background:#f0fbff!important;}
+/* Celular: mayor área visible, mapa ~30% del área útil. */
+.smartphone-container{width:390px!important;height:760px!important;max-width:100%!important;border-width:10px!important;border-radius:34px!important;}
+.smartphone-screen{font-size:14px!important;overflow:hidden!important;}
+#map{height:30%!important;min-height:205px!important;max-height:228px!important;flex:0 0 30%!important;}
+.smartphone-screen>.p-3{padding:12px!important;min-height:0!important;overflow-y:auto!important;}
+.smartphone-screen .form-label{font-size:14px!important;}
+.smartphone-screen .form-select,.smartphone-screen .form-control{font-size:14px!important;min-height:40px!important;}
+.app-header{font-size:16px!important;padding:24px 12px 12px!important;}
+/* Simulador pequeño y encima del celular. */
+.smartphone-container + .glass-panel{display:none!important;}
+.col-md-4>.glass-panel.text-start{width:min(300px,100%)!important;margin:0 auto 10px!important;padding:8px!important;border-radius:10px!important;}
+.col-md-4>.glass-panel.text-start .glass-header{padding:6px 9px!important;}
+.col-md-4>.glass-panel.text-start .row{margin-bottom:4px!important;}
+.col-md-4>.glass-panel.text-start .form-control{min-height:34px!important;padding:4px 7px!important;}
+.col-md-4>.glass-panel.text-start .btn{padding:5px 8px!important;}
+/* Reportes centrados */
+#nav-reports{max-width:1250px!important;margin:0 auto!important;}
+#nav-reports>.row{justify-content:center!important;}
+#nav-reports .glass-panel{margin-left:auto!important;margin-right:auto!important;}
+/* Ajustes también legibles sobre el fondo futurista */
+#nav-users .glass-panel{color:#eaf6ff!important;}
+#nav-users .glass-panel .form-label,#nav-users .glass-panel label{color:#eaf6ff!important;}
+#nav-users .glass-panel .form-control,#nav-users .glass-panel .form-select{background:#f8fbfd!important;color:#142536!important;}
+@media(max-width:767px){
+  #aiLivePanel .ai-audience-grid{grid-template-columns:1fr!important;}
+  .smartphone-container{width:min(390px,96vw)!important;height:760px!important;}
+  #map{height:30%!important;}
+}
+
+
+/* =========================================================
+   CORRECCIÓN FINAL IA — contraste, separación y legibilidad
+   ========================================================= */
+#aiLivePanel .ai-result-card{
+    background:#eaf1f6!important;
+    color:#13283a!important;
+    border:2px solid #7f9caf!important;
+    overflow:hidden!important;
+}
+#aiLivePanel .ai-result-title{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:12px!important;
+    background:#dbe7ee!important;
+    color:#102a40!important;
+    border-bottom:2px solid #9db2c1!important;
+    padding:12px 14px!important;
+    margin:-1px -1px 14px!important;
+    border-radius:10px 10px 0 0!important;
+    font-size:16px!important;
+    line-height:1.25!important;
+}
+#aiLivePanel .ai-result-heading,
+#aiLivePanel .ai-result-heading i{
+    color:#102a40!important;
+    font-size:16px!important;
+    font-weight:900!important;
+    letter-spacing:.3px!important;
+}
+#aiLivePanel .ai-generated-badge{
+    flex:0 0 auto!important;
+    background:#ccefdc!important;
+    color:#145b37!important;
+    border:1px solid #8ec9a8!important;
+    padding:5px 9px!important;
+    border-radius:999px!important;
+    font-size:12px!important;
+    font-weight:900!important;
+}
+#aiLivePanel .ai-audience-grid{
+    align-items:stretch!important;
+}
+#aiLivePanel .ai-audience-card{
+    min-height:430px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+}
+#aiLivePanel .ai-audience-title{
+    flex:0 0 auto!important;
+    line-height:1.25!important;
+    white-space:normal!important;
+}
+#aiLivePanel .ai-ticket-list{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    max-height:390px!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    padding:2px 8px 8px 2px!important;
+}
+#aiLivePanel .ai-ticket-item{
+    display:block!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0 0 12px!important;
+    padding:12px!important;
+    overflow:hidden!important;
+    white-space:normal!important;
+    word-break:normal!important;
+    overflow-wrap:anywhere!important;
+    line-height:1.4!important;
+}
+#aiLivePanel .ai-ticket-item:last-child{margin-bottom:2px!important;}
+#aiLivePanel .ai-ticket-top{
+    min-height:28px!important;
+    height:auto!important;
+    align-items:center!important;
+    flex-wrap:wrap!important;
+    gap:7px!important;
+    line-height:1.3!important;
+}
+#aiLivePanel .ai-ticket-top strong{
+    flex:1 1 140px!important;
+    min-width:0!important;
+    color:#10243a!important;
+    font-size:14px!important;
+    line-height:1.3!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+}
+#aiLivePanel .ai-ticket-data{
+    display:block!important;
+    margin:8px 0 7px!important;
+    padding:0!important;
+    color:#425b6c!important;
+    font-size:13px!important;
+    line-height:1.45!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+}
+#aiLivePanel .ai-ticket-message{
+    display:block!important;
+    height:auto!important;
+    max-height:none!important;
+    min-height:0!important;
+    overflow:visible!important;
+    margin:0!important;
+    padding:9px 10px!important;
+    border-radius:7px!important;
+    color:#172b3b!important;
+    background:#f7fafc!important;
+    font-size:14px!important;
+    line-height:1.5!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+}
+#aiLivePanel .ai-ticket-item.priority-urgente{
+    border-left:6px solid #c62828!important;
+    background:#fff4f4!important;
+}
+#aiLivePanel .ai-ticket-item.priority-urgente .ai-ticket-message{
+    background:#ffe6e6!important;
+    border:1px solid #f0b1b1!important;
+    color:#641b1b!important;
+}
+#aiLivePanel .ai-ticket-item.priority-normal{
+    border-left:6px solid #1b9bd1!important;
+    background:#f2fbff!important;
+}
+#aiLivePanel .ai-ticket-item.priority-normal .ai-ticket-message{
+    background:#e9f8ff!important;
+    border:1px solid #a9d9eb!important;
+    color:#17465d!important;
+}
+#aiLivePanel .internal-message{
+    background:#fff6dc!important;
+    border:1px solid #e3bd63!important;
+    border-left:4px solid #c79218!important;
+    color:#503b14!important;
+}
+#aiLivePanel .ai-publication-note{
+    display:flex!important;
+    align-items:center!important;
+    gap:8px!important;
+    min-height:46px!important;
+    padding:10px 14px!important;
+    border:1px solid #72a7bd!important;
+    border-left:5px solid #1b9bd1!important;
+    border-radius:9px!important;
+    background:#e8f5fb!important;
+    color:#123b52!important;
+    font-size:14px!important;
+    font-weight:800!important;
+    line-height:1.35!important;
+}
+#aiLivePanel #btn-whatsapp-ia{font-size:14px!important;min-height:42px!important;padding:9px 16px!important;}
+/* El encabezado de IA nunca hereda blanco sobre fondo claro. */
+#aiLivePanel .glass-header.ai-live-header,
+#aiLivePanel .glass-header.ai-live-header *{
+    color:#eef8ff!important;
+}
+@media(max-width:900px){
+  #aiLivePanel .ai-audience-card{min-height:360px!important;}
+  #aiLivePanel .ai-ticket-list{max-height:330px!important;}
+}
+
+/* =========================================================
+   IA — VISUALIZACIÓN ROBUSTA Y SCROLL SIN SOLAPAMIENTOS
+   ========================================================= */
+#aiLivePanel #aiResultCard{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-height:760px!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  padding:0!important;
+  background:#eaf1f6!important;
+  color:#172b3b!important;
+}
+#aiLivePanel #aiResultCard::-webkit-scrollbar,
+#aiLivePanel .ai-ticket-list::-webkit-scrollbar{
+  width:10px!important;
+}
+#aiLivePanel #aiResultCard::-webkit-scrollbar-thumb,
+#aiLivePanel .ai-ticket-list::-webkit-scrollbar-thumb{
+  background:#708797!important;
+  border-radius:8px!important;
+  border:2px solid #eaf1f6!important;
+}
+#aiLivePanel #aiResultCard::-webkit-scrollbar-track,
+#aiLivePanel .ai-ticket-list::-webkit-scrollbar-track{
+  background:#d7e2e9!important;
+  border-radius:8px!important;
+}
+#aiLivePanel .ai-result-title{
+  position:sticky!important;
+  top:0!important;
+  z-index:5!important;
+  box-sizing:border-box!important;
+  margin:0!important;
+  padding:14px 16px!important;
+  min-height:52px!important;
+  background:#dbe7ee!important;
+  color:#102a40!important;
+}
+#aiLivePanel .ai-audience-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  gap:18px!important;
+  align-items:stretch!important;
+  padding:0 16px 16px!important;
+  margin:0!important;
+}
+#aiLivePanel .ai-audience-card{
+  box-sizing:border-box!important;
+  min-width:0!important;
+  height:500px!important;
+  min-height:500px!important;
+  max-height:500px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  overflow:hidden!important;
+  padding:14px!important;
+}
+#aiLivePanel .ai-audience-title{
+  flex:0 0 auto!important;
+  min-height:42px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  box-sizing:border-box!important;
+  margin:0 0 10px!important;
+  padding:0 0 10px!important;
+}
+#aiLivePanel .ai-ticket-list{
+  box-sizing:border-box!important;
+  flex:1 1 0!important;
+  min-height:0!important;
+  height:auto!important;
+  max-height:none!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:12px!important;
+  padding:2px 8px 8px 2px!important;
+}
+#aiLivePanel .ai-ticket-item{
+  position:relative!important;
+  flex:0 0 auto!important;
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:12px!important;
+  overflow:visible!important;
+  white-space:normal!important;
+  word-break:normal!important;
+  overflow-wrap:anywhere!important;
+  isolation:isolate!important;
+  contain:layout paint!important;
+}
+#aiLivePanel .ai-ticket-top,
+#aiLivePanel .ai-ticket-data,
+#aiLivePanel .ai-ticket-message{
+  position:static!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+}
+#aiLivePanel .ai-ticket-top{
+  display:flex!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  gap:7px!important;
+  margin:0 0 8px!important;
+}
+#aiLivePanel .ai-ticket-top strong{
+  flex:1 1 140px!important;
+  min-width:0!important;
+}
+#aiLivePanel .ai-ticket-data{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0 0 8px!important;
+  line-height:1.45!important;
+  white-space:normal!important;
+  overflow:visible!important;
+}
+#aiLivePanel .ai-ticket-message{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  overflow:visible!important;
+  line-height:1.5!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+}
+#aiLivePanel .ai-ticket-item .ai-mini-badge{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+@media(max-width:900px){
+  #aiLivePanel #aiResultCard{max-height:780px!important;}
+  #aiLivePanel .ai-audience-grid{grid-template-columns:1fr!important;}
+  #aiLivePanel .ai-audience-card{height:390px!important;min-height:390px!important;max-height:390px!important;}
+}
+@media(max-width:520px){
+  #aiLivePanel .ai-audience-grid{padding:0 10px 10px!important;gap:12px!important;}
+  #aiLivePanel .ai-audience-card{height:360px!important;min-height:360px!important;max-height:360px!important;padding:10px!important;}
+}

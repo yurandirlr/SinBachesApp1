@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SinBaches App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navegación superior estilo App -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1);">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-warning" href="#"><i class="fa-solid fa-road"></i> SinBaches App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-pills" id="app-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="nav-dashboard-tab" data-bs-toggle="tab" href="#nav-dashboard" role="tab">Dashboard Principal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-reports-tab" data-bs-toggle="tab" href="#nav-reports" role="tab"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-users-tab" data-bs-toggle="tab" href="#nav-users" role="tab"><i class="fa-solid fa-sliders"></i> Ajustes</a>
+        </li>
+      </ul>
+      <button id="btnReset" class="btn btn-outline-danger btn-sm">
+        <i class="fa-solid fa-trash"></i> Reset BD
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid py-4 tab-content" id="nav-tabContent">
+
+    <!-- ==================== PESTAÑA 1: DASHBOARD ==================== -->
+    <div class="tab-pane fade show active" id="nav-dashboard" role="tabpanel">
+        <h1 class="text-center mb-4 fw-bold" style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">SinBaches App</h1>
+        
+        <div class="row">
+            <!-- Columna Izquierda: Celular y Simulador -->
+            <div class="col-md-4 text-center">
+                <h5 class="text-info mb-3" style="text-shadow: 0 1px 2px #000;"><i class="fa-solid fa-satellite-dish"></i> 1. Oráculo (App Móvil)</h5>
+                
+                <!-- Panel Simulador Automático -->
+<div class="glass-panel text-start mt-3 p-3">
+                    <h6 class="text-warning border-bottom pb-2 mb-2"><i class="fa-solid fa-video"></i> Simulador</h6>
+                    <div class="row g-2 mb-2">
+                        <div class="col-6">
+                            <label class="small mb-1">Duración (seg):</label>
+                            <input type="number" id="sim_duration" class="form-control form-control-sm" value="60" min="10" max="300">
+                        </div>
+                        <div class="col-6">
+                            <label class="small mb-1">Intervalo (seg):</label>
+                            <input type="number" id="sim_interval" class="form-control form-control-sm" value="2" min="1" max="10">
+                        </div>
+                    </div>
+                    <div class="text-center mb-2">
+                        <span id="countdown_timer" class="fw-bold fs-5 text-info">00:00</span>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button id="btnStartSim" class="btn btn-success btn-sm flex-fill fw-bold"><i class="fa-solid fa-play"></i> INICIAR</button>
+                        <button id="btnStopSim" class="btn btn-danger btn-sm flex-fill fw-bold" disabled><i class="fa-solid fa-stop"></i> PARAR</button>
+                    </div>
+                </div>
+
+                <div class="smartphone-container">
+                    <div class="smartphone-screen">
+                        <div class="app-header">
+                            <i class="fa-solid fa-bus"></i> MuniBus App
+                        </div>
+                        <div id="map"></div>
+                        <div class="p-3 text-start" style="flex-grow: 1; overflow-y: auto;">
+                            <form id="reportForm">
+                                <p class="small text-muted mb-2">Simula que el bus pasó por un bache:</p>
+                                <div class="mb-2">
+                                    <label class="form-label fw-bold" style="font-size: 0.8em;">Conductor / Bus ID</label>
+                                    <select class="form-select form-select-sm" id="bus_id" required>
+                                        <!-- Cargado dinámicamente -->
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label fw-bold" style="font-size: 0.8em;">Tipo de usuario</label>
+                                    <select class="form-select form-select-sm" id="user_type" required>
+                                        <option value="Conductor">Conductor</option>
+                                        <option value="Peatón">Peatón</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label fw-bold" style="font-size: 0.8em;">Ubicación Actual</label>
+                                    <select class="form-select form-select-sm" id="street" required>
+                                        <!-- Cargado dinámicamente -->
+                                    </select>
+                                    <input type="hidden" id="is_main_avenue" value="true">
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label fw-bold" style="font-size: 0.8em;">Tamaño / condición del bache</label>
+                                    <select class="form-select form-select-sm" id="incident_size" required></select>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label fw-bold" style="font-size: 0.8em;">Tipo de incidente</label>
+                                    <select class="form-select form-select-sm" id="incident_type" required></select>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label fw-bold" style="font-size: 0.8em;">Foto del bache (simulación)</label>
+                                    <input type="file" class="form-control form-control-sm" id="incident_photo" accept="image/*">
+                                    <div class="demo-photo-label">Fotos de ejemplo para la simulación</div>
+                                    <div class="demo-photo-gallery">
+                                        <button type="button" class="demo-photo" data-photo="assets/baches/bache_pequeno.svg"><img src="assets/baches/bache_pequeno.svg" alt="Bache pequeño"><span>Pequeño</span></button>
+                                        <button type="button" class="demo-photo" data-photo="assets/baches/bache_mediano.svg"><img src="assets/baches/bache_mediano.svg" alt="Bache mediano"><span>Mediano</span></button>
+                                        <button type="button" class="demo-photo" data-photo="assets/baches/bache_enorme.svg"><img src="assets/baches/bache_enorme.svg" alt="Bache enorme"><span>Enorme</span></button>
+                                    </div>
+                                    <div id="photoPreview" class="photo-preview mt-2"><span><i class="fa-regular fa-image"></i> Sin foto adjunta</span></div>
+                                </div>
+                                <div class="mt-3 text-center">
+                                    <button type="submit" class="btn btn-danger w-100 rounded-pill fw-bold p-2" id="btnShock">
+                                        <i class="fa-solid fa-house-crack"></i> ¡Aquí hay un Bache!
+                                    </button>
+                                    <p class="text-muted mt-2 mb-0" style="font-size: 0.7em;"><span id="accel_status" class="sensor-status"><i class="fa-solid fa-wave-square"></i> DETECCIÓN DE IMPACTO ACTIVA</span></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Columna Central: Smart Contracts y Blockchain -->
+            <div class="col-md-8">
+                
+                <!-- Panel Smart Contracts -->
+                <div class="glass-panel">
+                    <div class="glass-header text-warning">
+                        <i class="fa-solid fa-file-contract"></i> 2. Smart Contracts (Tickets)
+                    </div>
+                    <div class="p-3">
+                        <div id="ticketStatusSummary" class="ticket-status-summary mb-2">Smart Contract listo: se crea un Ticket automáticamente al llegar a 5 reportes en la misma calle.</div>
+                        <div class="table-scrollable">
+                            <table class="table table-glass table-hover align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Calle</th>
+                                        <th>Reportes</th>
+                                        <th>Prioridad</th>
+                                        <th>Estado</th>
+                                        <th>Coordenadas</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ticketsTableBody">
+                                    <!-- Generado por JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IA GENERATIVA — ÚNICA VENTANA, EN DASHBOARD PRINCIPAL -->
+                <div class="glass-panel mt-3" id="aiLivePanel">
+                    <div class="glass-header ai-live-header">
+                        <span><i class="fa-solid fa-robot"></i> 4. IA Generativa (Comunicación Vecinal)</span>
+                        <span id="ai-status" class="ai-status ai-status-ready">ESPERANDO TICKET</span>
+                    </div>
+                    <div class="p-3">
+                        <div class="ai-live-grid">
+                            <div><div class="ai-caption">ÚLTIMO TICKET</div><div id="ai-ticket-name" class="ai-ticket-name">Esperando 5 reportes...</div></div>
+                            <div><div class="ai-caption">PRIORIDAD</div><div id="ai-priority-preview" class="ai-data-box">—</div></div>
+                            <div><div class="ai-caption">REPORTES</div><div id="ai-reports-preview" class="ai-data-box">—</div></div>
+                        </div>
+                        <div id="ai-coordinate-preview" class="ai-coordinate-box"><i class="fa-solid fa-location-dot"></i> Coordenadas: —</div>
+                        <div id="aiEmptyState" class="ai-empty-state">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <strong>La IA está lista</strong>
+                            <span>Al generarse un Ticket, la IA explica el resultado en lenguaje simple.</span>
+                        </div>
+                        <div id="aiResultCard" class="ai-result-card d-none">
+                            <div class="ai-result-title"><span class="ai-result-heading"><i class="fa-solid fa-robot"></i> TICKETS ANALIZADOS POR LA IA</span><span class="ai-generated-badge">MÁX. 5</span></div>
+                            <div class="ai-audience-grid">
+                                <section class="ai-audience-card citizen">
+                                    <div class="ai-audience-title"><i class="fa-solid fa-people-group"></i> COMUNICACIÓN PARA CIUDADANOS</div>
+                                    <div id="aiCitizenList" class="ai-ticket-list"></div>
+                                </section>
+                                <section class="ai-audience-card municipal">
+                                    <div class="ai-audience-title"><i class="fa-solid fa-building-columns"></i> INFORME INTERNO MUNICIPAL</div>
+                                    <div id="aiMunicipalList" class="ai-ticket-list"></div>
+                                </section>
+                            </div>
+                            <div id="aiTicketList" class="d-none"></div>
+                            <div class="ai-publication-note mt-3"><i class="fa-solid fa-bullhorn"></i> Se publicará en la página de la municipalidad.</div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a id="btn-whatsapp-ia" class="btn btn-success" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> ENVIAR A WHATSAPP</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel Blockchain -->
+                <div class="glass-panel mt-3">
+                    <div class="glass-header text-light">
+                        <i class="fa-solid fa-link"></i> 3. Blockchain (Historial)
+                    </div>
+                    <div class="p-3">
+                        <div class="blockchain-log" id="blockchainLog">
+                            <!-- Logs generados por JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PESTAÑA 2: REPORTES ==================== -->
+    <div class="tab-pane fade" id="nav-reports" role="tabpanel">
+        <div class="row">
+            <!-- Exportación y Estadísticas -->
+            <div class="col-md-7">
+                <div class="glass-panel">
+                    <div class="glass-header text-info d-flex justify-content-between align-items-center">
+                        <span><i class="fa-solid fa-chart-pie"></i> Reportes y Estadísticas</span>
+                        <div>
+                            <button id="btnExportCSV" class="btn btn-sm btn-success"><i class="fa-solid fa-file-excel"></i> CSV</button>
+                            <button id="btnExportPDF" class="btn btn-sm btn-danger"><i class="fa-solid fa-file-pdf"></i> PDF</button>
+                        </div>
+                    </div>
+                    <div class="p-3" id="printableReport">
+                        
+                        <div id="reportDateRange" class="report-date-range"><i class="fa-regular fa-calendar-days"></i> Reportes generados del <strong>—</strong> al <strong>—</strong></div>
+                        <div class="row g-2 mb-4 align-items-end d-print-none">
+                            <div class="col-md-4">
+                                <label class="small">Desde:</label>
+                                <input type="date" id="filter_start" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="small">Hasta:</label>
+                                <input type="date" id="filter_end" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-md-4">
+                                <button id="btnFilter" class="btn btn-sm btn-primary w-100"><i class="fa-solid fa-filter"></i> Filtrar</button>
+                            </div>
+                        </div>
+
+                        <!-- Resumen Global -->
+                        <div class="row text-center mb-4">
+                            <div class="col-4">
+                                <h3 class="text-warning mb-0" id="stat_total">0</h3>
+                                <small class="text-muted">Total Generados</small>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="text-success mb-0" id="stat_resolved">0</h3>
+                                <small class="text-muted">Solucionados</small>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="text-info mb-0" id="stat_eff">0%</h3>
+                                <small class="text-muted">Eficiencia</small>
+                            </div>
+                        </div>
+
+                        <!-- Desglose por Zonas -->
+                        <h6 class="border-bottom pb-1 mb-2">Baches por Zona</h6>
+                        <ul class="list-group list-group-flush mb-4" id="stats_zones"></ul>
+
+                        <!-- Desglose por Calles -->
+                        <h6 class="border-bottom pb-1 mb-2">Top Calles con Baches</h6>
+                        <ul class="list-group list-group-flush" id="stats_streets"></ul>
+
+                    </div><div class="glass-panel mt-3" id="topReportersPanel">
+            <div class="glass-header"><span><i class="fa-solid fa-medal"></i> Usuarios que más reportan</span></div>
+            <div class="p-3"><div id="topReporters" class="reporters-list"></div></div>
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PESTAÑA 3: AJUSTES ==================== -->
+    <div class="tab-pane fade" id="nav-users" role="tabpanel">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="glass-panel">
+                    <div class="glass-header text-info">
+                        <i class="fa-solid fa-sliders"></i> Ajustes
+                    </div>
+                    <div class="p-4">
+                        <form id="addUserForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small">ID del Bus / Código</label>
+                                    <input type="text" id="add_bus_id" class="form-control" required placeholder="Ej. Bus #150">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small">Nombres y Apellidos (Opcional)</label>
+                                    <input type="text" id="add_name" class="form-control" placeholder="Ej. Juan Pérez">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small">DNI (Opcional)</label>
+                                    <input type="text" id="add_dni" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small">Placa (Opcional)</label>
+                                    <input type="text" id="add_plate" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small">Ruta (Empresa)</label>
+                                    <input type="text" id="add_route" class="form-control" placeholder="Ej. E.T. El León">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small">Correo (Opcional)</label>
+                                    <input type="email" id="add_email" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small">Celular (Opcional)</label>
+                                    <input type="text" id="add_phone" class="form-control">
+                                </div>
+                                <div class="col-12 mt-4 text-end">
+                                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Registrar Vehículo</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="glass-panel mt-3">
+                    <div class="glass-header text-info"><i class="fa-solid fa-font"></i> Apariencia y tipografía</div>
+                    <div class="p-3">
+                        <div class="row g-3">
+                            <div class="col-md-6"><label class="form-label small">Fuente global</label><select id="fontFamilySetting" class="form-select form-select-sm"><option value="Arial,sans-serif">Arial</option><option value="Inter,Segoe UI,Arial,sans-serif">Inter / Segoe UI</option><option value="Verdana,sans-serif">Verdana</option><option value="Tahoma,sans-serif">Tahoma</option><option value="Georgia,serif">Georgia</option></select></div>
+                            <div class="col-md-6"><label class="form-label small">Tamaño global de letra</label><select id="fontSizeSetting" class="form-select form-select-sm"><option value="14px">14 px (predeterminado)</option><option value="11px">11 px</option><option value="10px">10 px</option><option value="12px">12 px</option><option value="13px">13 px</option></select></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel mt-3">
+                    <div class="glass-header text-warning"><i class="fa-solid fa-triangle-exclamation"></i> Tipos de incidente</div>
+                    <div class="p-3">
+                        <div class="input-group input-group-sm mb-3"><input id="newIncidentType" class="form-control" placeholder="Ej. Hundimiento de calzada"><button id="btnAddIncidentType" class="btn btn-warning"><i class="fa-solid fa-plus"></i> Agregar</button></div>
+                        <div id="incidentTypesList" class="incident-types-list"></div>
+                    </div>
+                </div>
+
+                <div class="glass-panel mt-3">
+                    <div class="glass-header text-light">Lista de Vehículos Activos <span id="userCountBadge" class="badge bg-info ms-2">20 usuarios</span></div>
+                    <div class="p-3 table-scrollable" style="max-height: 400px;">
+                        <table class="table table-glass table-sm text-center">
+                            <thead>
+                                <tr><th>ID Bus</th><th>Conductor</th><th>Ruta</th><th>Placa</th></tr>
+                            </thead>
+                            <tbody id="usersTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

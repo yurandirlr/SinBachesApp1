@@ -1,0 +1,194 @@
+{
+    "users": [
+        {
+            "bus_id": "Bus #101",
+            "name": "Conductor Piloto 1",
+            "dni": "70000001",
+            "plate": "X1B-903",
+            "route": "E.T. El Zorro",
+            "email": "piloto1@ruta.com",
+            "phone": "988309850"
+        },
+        {
+            "bus_id": "Bus #102",
+            "name": "Conductor Piloto 2",
+            "dni": "70000002",
+            "plate": "X1C-608",
+            "route": "E.T. Imperial",
+            "email": "piloto2@ruta.com",
+            "phone": "947544276"
+        },
+        {
+            "bus_id": "Bus #103",
+            "name": "Conductor Piloto 3",
+            "dni": "70000003",
+            "plate": "X1D-871",
+            "route": "E.T. Batman",
+            "email": "piloto3@ruta.com",
+            "phone": "997334040"
+        },
+        {
+            "bus_id": "Bus #104",
+            "name": "Conductor Piloto 4",
+            "dni": "70000004",
+            "plate": "X1E-152",
+            "route": "E.T. El Zorro",
+            "email": "piloto4@ruta.com",
+            "phone": "995174799"
+        },
+        {
+            "bus_id": "Bus #105",
+            "name": "Conductor Piloto 5",
+            "dni": "70000005",
+            "plate": "X1F-506",
+            "route": "E.T. El Le\u00f3n",
+            "email": "piloto5@ruta.com",
+            "phone": "959965517"
+        },
+        {
+            "bus_id": "Bus #106",
+            "name": "Conductor Piloto 6",
+            "dni": "70000006",
+            "plate": "X1G-203",
+            "route": "E.T. Imperial",
+            "email": "piloto6@ruta.com",
+            "phone": "943491314"
+        },
+        {
+            "bus_id": "Bus #107",
+            "name": "Conductor Piloto 7",
+            "dni": "70000007",
+            "plate": "X1H-445",
+            "route": "E.T. Chaska",
+            "email": "piloto7@ruta.com",
+            "phone": "950211771"
+        },
+        {
+            "bus_id": "Bus #108",
+            "name": "Conductor Piloto 8",
+            "dni": "70000008",
+            "plate": "X1I-893",
+            "route": "E.T. Chaska",
+            "email": "piloto8@ruta.com",
+            "phone": "931018077"
+        },
+        {
+            "bus_id": "Bus #109",
+            "name": "Conductor Piloto 9",
+            "dni": "70000009",
+            "plate": "X1J-651",
+            "route": "E.T. El Zorro",
+            "email": "piloto9@ruta.com",
+            "phone": "949161462"
+        },
+        {
+            "bus_id": "Bus #110",
+            "name": "Conductor Piloto 10",
+            "dni": "70000010",
+            "plate": "X1K-575",
+            "route": "E.T. Chaska",
+            "email": "piloto10@ruta.com",
+            "phone": "993388975"
+        },
+        {
+            "bus_id": "Bus #111",
+            "name": "Conductor Piloto 11",
+            "dni": "70000011",
+            "plate": "X1L-388",
+            "route": "E.T. Batman",
+            "email": "piloto11@ruta.com",
+            "phone": "958434212"
+        },
+        {
+            "bus_id": "Bus #112",
+            "name": "Conductor Piloto 12",
+            "dni": "70000012",
+            "plate": "X1M-332",
+            "route": "E.T. El Le\u00f3n",
+            "email": "piloto12@ruta.com",
+            "phone": "947816231"
+        },
+        {
+            "bus_id": "Bus #113",
+            "name": "Conductor Piloto 13",
+            "dni": "70000013",
+            "plate": "X1N-895",
+            "route": "E.T. Chaska",
+            "email": "piloto13@ruta.com",
+            "phone": "914646650"
+        },
+        {
+            "bus_id": "Bus #114",
+            "name": "Conductor Piloto 14",
+            "dni": "70000014",
+            "plate": "X1O-740",
+            "route": "E.T. Chaska",
+            "email": "piloto14@ruta.com",
+            "phone": "982533401"
+        },
+        {
+            "bus_id": "Bus #115",
+            "name": "Conductor Piloto 15",
+            "dni": "70000015",
+            "plate": "X1P-980",
+            "route": "E.T. Batman",
+            "email": "piloto15@ruta.com",
+            "phone": "996373934"
+        },
+        {
+            "bus_id": "Bus #116",
+            "name": "Conductor Piloto 16",
+            "dni": "70000016",
+            "plate": "X1Q-761",
+            "route": "E.T. Chaska",
+            "email": "piloto16@ruta.com",
+            "phone": "937303003"
+        },
+        {
+            "bus_id": "Bus #117",
+            "name": "Conductor Piloto 17",
+            "dni": "70000017",
+            "plate": "X1R-194",
+            "route": "E.T. Chaska",
+            "email": "piloto17@ruta.com",
+            "phone": "998669383"
+        },
+        {
+            "bus_id": "Bus #118",
+            "name": "Conductor Piloto 18",
+            "dni": "70000018",
+            "plate": "X1S-161",
+            "route": "E.T. Batman",
+            "email": "piloto18@ruta.com",
+            "phone": "946763772"
+        },
+        {
+            "bus_id": "Bus #119",
+            "name": "Conductor Piloto 19",
+            "dni": "70000019",
+            "plate": "X1T-415",
+            "route": "E.T. El Zorro",
+            "email": "piloto19@ruta.com",
+            "phone": "914446680"
+        },
+        {
+            "bus_id": "Bus #120",
+            "name": "Conductor Piloto 20",
+            "dni": "70000020",
+            "plate": "X1U-156",
+            "route": "E.T. El Zorro",
+            "email": "piloto20@ruta.com",
+            "phone": "987860352"
+        }
+    ],
+    "reports": [],
+    "tickets": [],
+    "blockchain": [],
+    "incident_types": [
+        "Bache \/ hueco",
+        "Hundimiento de calzada",
+        "Pavimento deteriorado",
+        "Suelo inestable",
+        "Grieta profunda"
+    ]
+}
