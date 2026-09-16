@@ -1,56 +1,94 @@
-#INFORME DEL PROYECTO – SESIÓN 21
-#SinBachesApp
-#Oráculo → Smart Contracts → Blockchain → IA
-#Estudiante: Yurandir Loayza Rosas
-#Ingeniería de Inteligencia Artificial
-#Fecha: 15 de septiembre de 2026
+# Cazador de Baches – Smart City
 
+## Proyecto académico
 
-Este proyecto es una simulación web en **PHP puro** de un sistema automatizado para una Ciudad Inteligente. Aplica estrictamente el patrón arquitectónico requerido: **Oráculo → Smart Contracts → Blockchain → IA Generativa**.
+Sistema inteligente para la detección colaborativa de baches
+mediante Oráculo, Smart Contracts, Blockchain e Inteligencia Artificial.
 
-## 🏗️ Arquitectura del Proyecto
+## Autor
 
-1. **📡 Oráculo (Simulador):** Un formulario (con apariencia de app móvil) que simula los datos de acelerómetro (vibración) recibidos desde los buses de transporte público, apoyado por un mapa interactivo (Leaflet) de San Sebastián.
-2. **⚙️ Smart Contracts (Reglas de Negocio):** Lógica en el backend (`backend.php`) que evalúa los reportes:
-   - **Regla 1:** Si una calle acumula 5 o más reportes de baches, se genera un "Ticket de Asfalto" automático.
-   - **Regla 2 (Prioridad):** Si la calle reportada es una "Avenida Principal", la prioridad del ticket se establece en "Urgente", de lo contrario es "Normal".
-3. **🔗 Blockchain (Historial Inmutable):** Un registro cronológico de todos los eventos del sistema almacenado en `database.json`.
-4. **🧠 IA Generativa (Asistente):** Un simulador que redacta un Tuit automático y empático dirigido a los ciudadanos, permitiendo compartirlo directamente por WhatsApp o Facebook.
+Yurandir Loayza Rosas
 
-## 📂 Estructura de Carpetas
+## Tecnologías
 
-```
-cazador_de_baches/
-├── backend/
-│   ├── backend.php        # Lógica del servidor (API)
-│   └── database.json      # Base de datos local
-├── frontend/
-│   ├── index.html         # Interfaz principal
-│   ├── css/
-│   │   └── style.css      # Estilos personalizados
-│   └── js/
-│       └── app.js         # Lógica cliente y conexión AJAX
-└── README.md
-```
+- PHP
+- JavaScript
+- JSON
+- HTML5
+- CSS3
+- Leaflet
+- XAMPP
 
-## 🚀 Cómo ejecutar el proyecto localmente
+## Arquitectura
 
-Dado que está construido en PHP puro, es muy fácil de correr sin necesidad de instalar XAMPP o configuraciones complejas. Solo necesitas tener PHP instalado en tu computadora.
+Oráculo
+↓
+Smart Contracts
+↓
+Blockchain
+↓
+IA
 
-1. Abre tu terminal o consola de comandos.
-2. Navega hasta la carpeta raíz del proyecto (`cazador_de_baches`).
-3. Inicia el servidor interno de PHP con el siguiente comando:
+## Oráculo
 
-   ```bash
-   php -S localhost:8000
-   ```
+Simula los datos enviados desde el celular de un conductor
+o peatón:
 
-4. Abre tu navegador web y visita: [http://localhost:8000/frontend/](http://localhost:8000/frontend/)
+- Usuario
+- Vehículo
+- Calle
+- Zona
+- Tipo de incidente
+- Tamaño
+- Fotografía
+- Coordenadas
 
-## 🎮 Cómo probar el flujo
+## Smart Contract 1
 
-1. En el panel **1. Oráculo (Celular)**, verás cómo el mapa carga el distrito de San Sebastián. Selecciona una calle y haz clic en "¡DETECTAR IMPACTO!". Observa la animación y cómo se agrega al **Blockchain**.
-2. Envía **5 reportes para la misma calle**. Verás que en el quinto reporte, el Smart Contract (Regla 1) genera automáticamente un Ticket de Asfalto en el panel central.
-3. Haz clic en el botón **"IA"** en la tabla. El sistema simulará una respuesta que podrás compartir por **WhatsApp** o **Facebook**.
-4. Haz clic en el botón de **Check Verde (Solucionar)** para marcar que la cuadrilla reparó el bache.
-5. Haz clic en el botón superior verde **"Reporte Mensual"** para visualizar el Dashboard con la cantidad de baches arreglados en el mes.
+Cuando una calle alcanza 5 reportes,
+se genera automáticamente un Ticket de Asfalto.
+
+## Smart Contract 2
+
+La clasificación de la vía determina la prioridad
+del ticket y permite realizar el seguimiento de la atención.
+
+## Blockchain
+
+El sistema mantiene un historial cronológico local
+de los eventos generados.
+
+## Inteligencia Artificial
+
+Genera dos tipos de comunicación:
+
+1. Comunicación para ciudadanos.
+2. Informe interno municipal.
+
+## Ejecución
+
+1. Instalar XAMPP.
+2. Copiar el proyecto en:
+
+C:\xampp\htdocs\
+
+3. Iniciar Apache.
+4. Abrir:
+
+http://localhost/SinBaches/
+
+## Demostración
+
+El flujo de demostración es:
+
+Usuario
+→ Reporte
+→ Oráculo
+→ Smart Contract
+→ Ticket
+→ Blockchain
+→ IA
+
+## Informe
+
+Informe académico incluido en el proyecto.
