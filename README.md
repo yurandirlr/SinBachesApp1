@@ -1,4 +1,4 @@
-# Cazador de Baches – Smart City
+# SinBachesApp Ver.1
 
 ## Proyecto académico
 
@@ -8,6 +8,7 @@ mediante Oráculo, Smart Contracts, Blockchain e Inteligencia Artificial.
 ## Autor
 
 Yurandir Loayza Rosas
+8 INIA  
 
 ## Tecnologías
 
